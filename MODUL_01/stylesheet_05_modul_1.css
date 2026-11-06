@@ -1,0 +1,143 @@
+/* Pengaturan dasar halaman dan kontainer */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f9;
+  color: #333;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* Mempercantik elemen <fieldset> */
+fieldset {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Mengatur tata letak tabel di dalam form */
+form table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Jarak antar baris form */
+form tr {
+  margin-bottom: 15px;
+}
+
+/* Styling Label (Kolom pertama) */
+form td:first-child {
+  font-weight: 600;
+  color: #2d3748;
+  padding: 10px 0;
+  width: 30%;
+  vertical-align: top;
+}
+
+/* Kolom titik dua (:) */
+form td:nth-child(2) {
+  text-align: center;
+  color: #a0aec0;
+  width: 5%;
+  vertical-align: top;
+  padding-top: 10px;
+}
+
+/* Styling Input, Select, dan Textarea (Kolom ketiga) */
+form td:last-child {
+  padding: 10px 0;
+  vertical-align: top;
+}
+
+/* Desain Input Text, Email, Number, Date, dan Select */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: #2d3748;
+  background-color: #f8fafc;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+/* Efek saat input diklik/fokus */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #3182ce;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.15);
+}
+
+/* Styling Radio Button (Jenis Kelamin) */
+input[type="radio"] {
+  margin-right: 6px;
+  margin-left: 10px;
+  accent-color: #3182ce;
+}
+
+input[type="radio"]:first-of-type {
+  margin-left: 0;
+}
+
+/* Styling Textarea agar pas */
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Styling Tombol (Submit & Reset) */
+input[type="submit"],
+input[type="reset"] {
+  padding: 10px 22px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  margin-right: 10px;
+}
+
+/* Tombol Simpan */
+input[type="submit"] {
+  background-color: #3182ce;
+  color: #ffffff;
+}
+
+input[type="submit"]:hover {
+  background-color: #2b6cb0;
+}
+
+/* Tombol Batal/Reset */
+input[type="reset"] {
+  background-color: #edf2f7;
+  color: #4a5568;
+  border: 1px solid #cbd5e0;
+}
+
+input[type="reset"]:hover {
+  background-color: #e2e8f0;
+}
+
+/* Efek klik tombol */
+input[type="submit"]:active,
+input[type="reset"]:active {
+  transform: scale(0.98);
+}

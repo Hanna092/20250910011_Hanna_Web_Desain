@@ -1,0 +1,83 @@
+/* Pengaturan Umum & Reset */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f9;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 40px 20px;
+}
+
+main {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+/* Kartu Artikel Utama */
+article {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  border-top: 5px solid #2b6cb0;
+}
+
+/* Styling Gambar (Logo/Banner) */
+article img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 30px auto;
+  border-radius: 8px;
+}
+
+/* Styling Khusus untuk Gambar Sertifikasi */
+article img[src*="BNSP"] {
+  max-width: 70%;
+  margin: 15px auto 0 auto;
+}
+
+/* Judul Bagian (Visi, Profil, MBKM, dll) */
+article > div {
+  font-size: 1.15rem;
+  color: #1a365d;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+/* Mengubah teks Visi, Profil, dll agar tampil seperti sub-heading */
+article > div b, article > div strong {
+  display: inline-block;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 4px;
+  width: 100%;
+  color: #2b6cb0;
+}
+
+/* Paragraf Visi & Profil Lulusan */
+article > div + text, 
+article > div {
+  color: #4a5568;
+}
+
+/* Styling untuk Daftar List (<ul>) */
+ul {
+  background: #f8fafc;
+  padding: 20px 20px 20px 40px;
+  border-radius: 10px;
+  margin-top: 8px;
+  border-left: 4px solid #cbd5e0;
+}
+
+ul li {
+  margin-bottom: 8px;
+  color: #4a5568;
+  font-size: 1rem;
+}
+
+ul li:last-child {
+  margin-bottom: 0;
+}
+
+/* Perbaikan penulisan tag penutup Visi di HTML kamu: <b>VISI</b> */

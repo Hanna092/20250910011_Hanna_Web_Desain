@@ -1,0 +1,145 @@
+/* Pengaturan Dasar Halaman */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f4f8;
+  color: #333;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Header Profil Kampus */
+.header-kampus {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.judul-biodata {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #2b6cb0;
+  display: block;
+  margin-bottom: 5px;
+  letter-spacing: 0.5px;
+}
+
+.sub-fakultas {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #4a5568;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.alamat-kampus {
+  font-size: 0.9rem;
+  color: #718096;
+}
+
+/* Garis Pemisah Utama */
+hr {
+  border: none;
+  height: 2px;
+  background-color: #e2e8f0;
+  margin: 30px 0;
+  border-radius: 2px;
+}
+
+/* Kartu Profil Utama (Foto & Nama) */
+.profil-card {
+  text-align: center;
+  background: #f8fafc;
+  padding: 30px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+  border: 1px solid #e2e8f0;
+}
+
+.profil-card img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+.nama-lengkap {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a365d;
+  margin-bottom: 4px;
+}
+
+.status-mahasiswa {
+  font-size: 1.05rem;
+  color: #3182ce;
+  font-weight: 500;
+}
+
+/* Judul Artikel (Data Pribadi, Riwayat Pendidikan, dll) */
+article h1 {
+  font-size: 1.25rem;
+  color: #1a365d;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #edf2f7;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Description List (Data Pribadi) */
+dl {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 10px 15px;
+  background: #fcfdfe;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #edf2f7;
+}
+
+dt {
+  font-weight: 600;
+  color: #4a5568;
+}
+
+dd {
+  margin: 0;
+  color: #2d3748;
+}
+
+/* Riwayat Pendidikan & Keahlian (List) */
+ol {
+  background: #fcfdfe;
+  padding: 20px 20px 20px 40px;
+  border-radius: 12px;
+  border: 1px solid #edf2f7;
+  margin: 0;
+}
+
+ol li {
+  margin-bottom: 8px;
+  color: #2d3748;
+}
+
+ol li:last-child {
+  margin-bottom: 0;
+}
+
+/* Kotak Cita-cita */
+.cita-cita-box {
+  background: linear-gradient(135deg, #ebf8ff 0%, #eef2f7 100%);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  border-left: 5px solid #3182ce;
+  font-size: 1.1rem;
+  color: #2b6cb0;
+  font-weight: 600;
+}
