@@ -1,0 +1,581 @@
+/* Reset Basic */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f0f4f8;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Navbar Navigasi */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0b4a92;
+    padding: 0.8rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.navbar ul li {
+    margin-left: 1.2rem;
+}
+
+.navbar ul li a {
+    color: #dce7f5;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: #ffffff;
+}
+
+/* LOGIKA RUANGAN KHUSUS UNTUK TIAP NAVIGASI (MULTI-SECTION TARGET) */
+.page-section {
+    display: none; /* Sembunyikan semua ruangan secara default */
+}
+
+/* Tampilkan Beranda Utama jika tidak ada target spesifik atau saat #home aktif */
+body:not(:has(:target)) #home,
+#home:target {
+    display: block;
+}
+
+/* Tampilkan Ruangan Khusus sesuai pilihan navigasi saat diklik */
+#profil-saya:target,
+#keluarga:target,
+#akademik:target,
+#kontak:target {
+    display: block;
+}
+
+/* Layout 2 Kolom Beranda */
+.container {
+    max-width: 1150px;
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+}
+
+.main-layout {
+    display: grid;
+    grid-template-columns: 1fr 310px;
+    gap: 1.5rem;
+}
+
+@media (max-width: 850px) {
+    .main-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Banner Card */
+.banner-card {
+    background: linear-gradient(135deg, #023883, #0066cc);
+    color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.banner-avatar img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid #fff;
+    object-fit: cover;
+}
+
+.banner-info h1 {
+    font-size: 1.35rem;
+    margin-bottom: 0.5rem;
+}
+
+.banner-info p {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    margin-bottom: 1rem;
+}
+
+.banner-buttons {
+    display: flex;
+    gap: 0.8rem;
+}
+
+/* Tombol-tombol */
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-yellow {
+    background-color: #d99b00;
+    color: #fff;
+}
+
+.btn-yellow:hover {
+    background-color: #b88300;
+}
+
+.btn-outline-white {
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.btn-outline-white:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-blue {
+    background-color: #0b4a92;
+    color: #fff;
+}
+
+.btn-blue:hover {
+    background-color: #08366d;
+}
+
+.btn-full {
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+/* Card Standar */
+.card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+
+.card h2 {
+    color: #0b4a92;
+    font-size: 1.15rem;
+    border-bottom: 2px solid #d99b00;
+    display: inline-block;
+    padding-bottom: 0.2rem;
+    margin-bottom: 1.2rem;
+}
+
+.sub-title {
+    color: #0b4a92;
+    font-size: 0.98rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+
+/* Grid Info Biodata */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.8rem;
+}
+
+.info-item {
+    background: #f8f9fa;
+    padding: 0.7rem 0.9rem;
+    border-left: 3px solid #0066cc;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+/* Tags Ketertarikan */
+.interest-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.interest-tags span {
+    background-color: #edf4fc;
+    color: #0b4a92;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid #d0e2f7;
+}
+
+/* Kartu Akademik */
+.academic-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.academic-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-top: 3px solid #0066cc;
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+.academic-box h4 {
+    font-size: 0.9rem;
+    color: #0b4a92;
+    margin-bottom: 0.4rem;
+}
+
+.academic-box p {
+    font-size: 0.8rem;
+    color: #555;
+}
+
+.academic-box .status-badge {
+    margin-top: 0.6rem;
+    font-weight: 600;
+    color: #d99b00;
+    font-size: 0.8rem;
+}
+
+/* Timeline */
+.timeline {
+    list-style: none;
+    border-left: 2px solid #0066cc;
+    padding-left: 1.2rem;
+}
+
+.timeline li {
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.timeline li::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: #0066cc;
+    position: absolute;
+    left: -1.55rem;
+    top: 5px;
+    border-radius: 50%;
+}
+
+.timeline h3 {
+    font-size: 0.95rem;
+    color: #0b4a92;
+}
+
+.timeline p {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* Tabel Jadwal */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.8rem;
+    font-size: 0.85rem;
+}
+
+.schedule-table th, .schedule-table td {
+    padding: 0.6rem 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.schedule-table th {
+    background-color: #0b4a92;
+    color: white;
+}
+
+/* Section Kontak Layout */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 700px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+.contact-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.contact-item {
+    background: #f8fafc;
+    padding: 0.8rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    border-left: 3px solid #d99b00;
+}
+
+.contact-item p {
+    color: #555;
+    margin-top: 0.2rem;
+}
+
+/* Sidebar Kolom Kanan */
+.right-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.sidebar-card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 1.2rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    border: 1px solid #eef2f5;
+}
+
+.sidebar-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #2c3e50;
+    border-bottom: 1.5px solid #d99b00;
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.quick-links-list {
+    list-style: none;
+}
+
+.quick-links-list li {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.quick-links-list li:last-child {
+    border-bottom: none;
+}
+
+.quick-links-list a {
+    display: block;
+    padding: 0.5rem 0;
+    color: #0066cc;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+}
+
+.quick-links-list a:hover {
+    color: #003366;
+    text-decoration: underline;
+}
+
+.schedule-highlight-card {
+    background-color: #edf4fc;
+    border: 1px solid #d0e2f7;
+}
+
+.schedule-body h4 {
+    font-size: 0.9rem;
+    color: #0b4a92;
+    margin-bottom: 0.2rem;
+}
+
+.schedule-body .time {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #333;
+}
+
+.schedule-body .location {
+    font-size: 0.8rem;
+    color: #555;
+    margin-top: 0.3rem;
+}
+
+.schedule-body .note {
+    font-size: 0.75rem;
+    color: #777;
+    margin: 0.6rem 0;
+}
+
+.about-text {
+    font-size: 0.8rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Profil Keluarga Grid */
+/* Tata letak utama card keluarga */
+.family-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.family-card {
+  background: #fcfdfe;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Pengaturan Foto Profil Keluarga */
+.family-card .avatar img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+/* Styling Teks di dalam Kartu Keluarga */
+.family-card h3 {
+  font-size: 1.2rem;
+  color: #1a365d;
+  margin-bottom: 4px;
+}
+
+.family-card .role {
+  font-size: 0.95rem;
+  color: #3182ce;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.family-card .name {
+  font-size: 1.05rem;
+  color: #2d3748;
+  margin-bottom: 15px;
+}
+
+/* Kotak Detail Informasi (Pekerjaan & Usia) */
+.family-card .family-details {
+  list-style: none;
+  padding: 12px 15px;
+  margin: 0;
+  width: 100%;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #edf2f7;
+  text-align: left;
+  box-sizing: border-box;
+  font-size: 0.9rem;
+  color: #4a5568;
+}
+
+.family-card .family-details li {
+  margin-bottom: 6px;
+}
+
+.family-card .family-details li:last-child {
+  margin-bottom: 0;
+}
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 0.8rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    margin-bottom: 0.2rem;
+    font-weight: 500;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    outline: none;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: #0066cc;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1.2rem;
+    background-color: #0b4a92;
+    color: white;
+    font-size: 0.85rem;
+    margin-top: 2rem;
+}
+/* Styling untuk daftar praktikum di dalam kotak akademik */
+.academic-box .praktikum-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 12px;
+}
+
+.academic-box .praktikum-list li {
+  margin-bottom: 8px;
+}
+
+.academic-box .praktikum-list a {
+  display: inline-block;
+  color: #2b6cb0;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 6px 12px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.academic-box .praktikum-list a:hover {
+  background-color: #3182ce;
+  color: #ffffff;
+  border-color: #3182ce;
+  transform: translateX(4px);
+}
