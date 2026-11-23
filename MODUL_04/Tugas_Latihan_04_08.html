@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web Alumni</title>
+<style>
+  :root { --bg:#f3f6fb; --ink:#14213d; --muted:#5b6785; --card:#fff; --accent:#1d4ed8; --line:#d9e0ee; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:Georgia, "Times New Roman", serif; background:var(--bg); color:var(--ink); line-height:1.6; }
+  header { padding:48px 20px 24px; max-width:960px; margin:0 auto; }
+  h1 { margin:0 0 6px; font-size:2.2rem; }
+  header p { margin:0; color:var(--muted); }
+  .tools { max-width:960px; margin:0 auto; padding:0 20px 20px; display:flex; gap:12px; flex-wrap:wrap; }
+  .tools input, .tools select { padding:10px 12px; font:inherit; border:1px solid var(--line); border-radius:6px; background:#fff; }
+  .tools input { flex:1 1 240px; }
+  .tools input:focus-visible, .tools select:focus-visible { outline:2px solid var(--accent); }
+  #grid { max-width:960px; margin:0 auto; padding:0 20px 48px; display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:16px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:18px; transition:transform .2s, box-shadow .2s, border-color .2s; }
+  .card:hover { transform:translateY(-4px); box-shadow:0 8px 20px rgba(20,33,61,.15); border-color:var(--accent); }
+  .avatar { width:52px; height:52px; border-radius:50%; background:var(--accent); color:#fff; display:grid; place-items:center; font-weight:bold; margin-bottom:10px; }
+  .card h3 { margin:0; font-size:1.1rem; }
+  .card p { margin:2px 0; color:var(--muted); font-size:.92rem; }
+  #empty { display:none; max-width:960px; margin:0 auto; padding:0 20px 48px; color:var(--muted); }
+  @media (prefers-reduced-motion:reduce) { .card { transition:none; } .card:hover { transform:none; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Data Alumni</h1>
+  <p>Cari alumni berdasarkan nama atau jurusan.</p>
+</header>
+
+<div class="tools">
+  <input id="cari" type="search" placeholder="Cari nama atau jurusan..." aria-label="Cari alumni">
+  <select id="jurusan" aria-label="Filter jurusan"><option value="">Semua jurusan</option></select>
+</div>
+
+<main id="grid"></main>
+<p id="empty">Tidak ada alumni yang cocok. Coba kata kunci lain.</p>
+
+<script>
+  // Data alumni (ganti dengan data alumni Anda)
+  const alumni = [
+    { nama:"Andi Pratama",  jurusan:"Teknik Informatika", angkatan:2018, kerja:"Web Developer di PT Teknologi Nusantara" },
+    { nama:"Siti Rahma",    jurusan:"Sistem Informasi",   angkatan:2019, kerja:"Data Analyst di Bank Mandiri" },
+    { nama:"Budi Santoso",  jurusan:"Teknik Informatika", angkatan:2017, kerja:"Web Developer di PT Solusi Digital" },
+    { nama:"Dewi Lestari",  jurusan:"Desain Visual Komunikasi", angkatan:2020, kerja:"UI/UX Designer di Startup Bandung" },
+    { nama:"Rizky Maulana", jurusan:"Sistem Informasi", angkatan:2018, kerja:"Staf Marketing di Tokopedia" },
+    { nama:"Nur Aini",      jurusan:"Sistem Informasi", angkatan:2021, kerja:"Administrator Sistem di Pemda" },
+    { nama:"Maulana",      jurusan:"Teknik Sipil", angkatan:2021, kerja:"site engineer di PT Konstruksi Jaya" }
+  ];
+
+  const grid = document.getElementById("grid");
+  const cari = document.getElementById("cari");
+  const pilih = document.getElementById("jurusan");
+  const kosong = document.getElementById("empty");
+
+  // Isi dropdown jurusan secara otomatis dari data
+  [...new Set(alumni.map(a => a.jurusan))].forEach(j => {
+    const o = document.createElement("option");
+    o.value = o.textContent = j;
+    pilih.appendChild(o);
+  });
+
+  function tampil(daftar) {
+    grid.innerHTML = daftar.map(a => `
+      <article class="card">
+        <div class="avatar">${a.nama.charAt(0)}</div>
+        <h3>${a.nama}</h3>
+        <p>${a.jurusan} · Angkatan ${a.angkatan}</p>
+        <p>${a.kerja}</p>
+      </article>`).join("");
+    kosong.style.display = daftar.length ? "none" : "block";
+  }
+
+  function saring() {
+    const kata = cari.value.toLowerCase().trim();
+    const j = pilih.value;
+    tampil(alumni.filter(a =>
+      (a.nama.toLowerCase().includes(kata) || a.jurusan.toLowerCase().includes(kata)) &&
+      (j === "" || a.jurusan === j)
+    ));
+  }
+
+  cari.addEventListener("input", saring);
+  pilih.addEventListener("change", saring);
+  tampil(alumni);
+</script>
+</body>
+</html>

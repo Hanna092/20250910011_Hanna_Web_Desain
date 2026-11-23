@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Post-Test Modul 4</title>
+</head>
+<body>
+  <h1>Post-Test Modul 4</h1>
+
+  <h2>1. Perbedaan var, let, dan const</h2>
+  <ul>
+    <li>var memakai function scope. Variabel var di dalam blok { } tetap bisa diakses dari luar blok.</li>
+    <li>let memakai block scope. Variabel hanya bisa diakses di dalam blok tempat ia dibuat, dan nilainya boleh diubah.</li>
+    <li>const juga block scope, tetapi nilainya tidak bisa diubah.</li>
+  </ul>
+  <p>Contoh kode (hasilnya ada di Console, tekan F12):</p>
+  <pre>
+if (true) {
+  var a = 1;
+  let b = 2;
+  const c = 3;
+}
+console.log(a); // 1
+console.log(b); // ReferenceError
+console.log(c); // ReferenceError
+
+const d = 10;
+d = 20; // TypeError
+  </pre>
+
+  <h2>2. Fungsi kuadrat</h2>
+  <p>Fungsi kuadrat mengembalikan nilai kuadrat dari suatu bilangan:</p>
+  <pre>
+function kuadrat(angka) {
+  return angka * angka;
+}
+  </pre>
+  <p>Pemanggilan: <code>kuadrat(7)</code></p>
+  <p>Hasil: <strong id="hasil-kuadrat"></strong></p>
+
+  <h2>3. Global scope dan local scope</h2>
+  <ul>
+    <li>Global scope: variabel dideklarasikan di luar fungsi, sehingga bisa diakses dari mana saja.</li>
+    <li>Local scope: variabel dideklarasikan di dalam fungsi, sehingga hanya bisa diakses di dalamnya.</li>
+  </ul>
+  <pre>
+let global = "Saya variabel global";
+
+function contoh() {
+  let lokal = "Saya variabel lokal";
+  console.log(global); // bisa diakses
+  console.log(lokal);  // bisa diakses
+}
+
+contoh();
+console.log(global); // bisa diakses
+console.log(lokal);  // ReferenceError
+  </pre>
+  <p>Variabel <code>lokal</code> tidak bisa diakses dari luar karena hanya hidup di dalam fungsi <code>contoh()</code>.</p>
+
+  <script>
+    // Soal 1
+    try {
+      if (true) {
+        var a = 1;
+        let b = 2;
+        const c = 3;
+      }
+      console.log(a);
+      console.log(b);
+    } catch (e) {
+      console.log("Soal 1 -> " + e.message);
+    }
+
+    try {
+      const d = 10;
+      d = 20;
+    } catch (e) {
+      console.log("Soal 1 -> " + e.message);
+    }
+
+    // Soal 2
+    function kuadrat(angka) {
+      return angka * angka;
+    }
+    console.log("Soal 2 -> " + kuadrat(7));
+    document.getElementById("hasil-kuadrat").textContent = kuadrat(7);
+
+    // Soal 3
+    let global = "Saya variabel global";
+    function contoh() {
+      let lokal = "Saya variabel lokal";
+      console.log(global);
+      console.log(lokal);
+    }
+    contoh();
+    try {
+      console.log(lokal);
+    } catch (e) {
+      console.log("Soal 3 -> " + e.message);
+    }
+  </script>
+</body>
+</html>
